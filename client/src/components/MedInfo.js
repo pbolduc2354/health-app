@@ -14,6 +14,10 @@ class MedInfo extends Component {
             .get('http://localhost:3001/api/v1/users.json')
             .then(response => {
                 console.log(response)
+                this.setState({
+                    userInfos: response.data
+                })
+                console.log(this.state.userInfos)
             })
             .catch(error => console.log(error))
     }
@@ -21,7 +25,14 @@ class MedInfo extends Component {
     render() {
         return (
             <div className="Med-info">
-                Medical_informations
+                {this.state.userInfos.map( userInfo => {
+                    return (
+                        <div className="single-user" key={userInfo.id}>
+                            <h4>{userInfo.first_name} {userInfo.last_name} </h4>
+                            <p>{userInfo.note}</p>
+                        </div>
+                    )
+                })}
             </div>
         )
     }
