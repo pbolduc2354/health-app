@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MedInfo from "./components/MedInfo"
+import MedInfo from "./components/MedInfo.jsx"
 
 class App extends Component {
   render() {

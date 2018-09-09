@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Patients from "./Patients"
+
 class MedInfo extends Component {
     constructor(props){
         super(props)
@@ -25,14 +27,7 @@ class MedInfo extends Component {
     render() {
         return (
             <div className="Med-info">
-                {this.state.userInfos.map( userInfo => {
-                    return (
-                        <div className="single-user" key={userInfo.id}>
-                            <h4>{userInfo.first_name} {userInfo.last_name} </h4>
-                            <p>{userInfo.note}</p>
-                        </div>
-                    )
-                })}
+                <Patients userInfos={this.state.userInfos} />
             </div>
         )
     }
